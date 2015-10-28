@@ -12,3 +12,17 @@ table {
 	margin: 10px;
 	padding: 10px;
 }
+
+p {
+	font-size: 18px;
+	text-align: center;
+}
+
+.col-centered {
+	float: none;
+	margin: 0 auto;
+}
+
+img {
+	height: 600px;
+}

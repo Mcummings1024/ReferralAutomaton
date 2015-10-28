@@ -4,7 +4,8 @@ app.factory('refService', function() {
 
 	var refs = [
 				{ref: "bologna", clicks: 132}, 
-				{ref: "ham", clicks: 90}
+				{ref: "ham", clicks: 90},
+				{ref: "cheese", clicks: 23}
 			   ];
 
 	return {
@@ -14,6 +15,10 @@ app.factory('refService', function() {
 
 		addRef: function(ref) {
 			refs.push(ref);
+		},
+
+		editRef: function(index, edit) {
+			refs[index].ref = edit;
 		},
 
 		removeRef: function(index) {

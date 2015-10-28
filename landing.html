@@ -3,8 +3,15 @@
 	<head>
 		<title>Landing Page</title>
 	</head>
-	<body>
-		<h1>Welcome to the {{splash.refs}} page!</h1>
-		<a href="#/"><button>Take Me Home</button></a>
+	<body class="container">
+		<h1>Welcome to the {{splash.params.link}} page!</h1>
+		<div class="row">
+			<div class="col-centered col-lg-1 col-md-1 col-sm-1 col-xs-1">
+				<a href="#/"><button>Take Me Home</button></a>
+			</div>
+		</div>
+		<div class="row">
+			<img class="col-centered col-lg-12 col-md-12 col-sm-12 col-xs-12" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/World_wide_web.jpg/1280px-World_wide_web.jpg">
+		</div>
 	</body>
 </html>

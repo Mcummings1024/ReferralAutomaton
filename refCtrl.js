@@ -16,8 +16,9 @@ app.controller('RefCtrl', ['refService', function(refService) {
 		self.refs[i].clicks++;
 	};
 
-	self.editRef = function() {
-		//edit code goes here
+	self.editRef = function(i) {
+		var editedRef = prompt("What would you like to change the referral to?");
+		refService.editRef(i, editedRef);
 	};
 	
 	self.removeRef = function(i) {

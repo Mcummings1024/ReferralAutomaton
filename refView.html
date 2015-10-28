@@ -1,25 +1,37 @@
 <!-- The view for the referral table/input form -->
 <div class="container">
 	<h1>Grow the web with referrals!</h1>
+	<form class="row">
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+			<p>Add a link: </p>
+		</div>
+	    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+	    	<input type="text" ng-model="ref.newRef" class="form-control" placeholder="Link">
+	    </div>
+	    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+	    	<button type="add" class="btn btn-default" ng-click="ref.addReferral()">Add</button>
+		</div>
+	</form>
 	<div class="row">
-		<form class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<label>Add a link: </label>
-		    <input type="text" ng-model="ref.newRef" class="form-control" placeholder="Link">
-		    <button type="add" class="btn btn-default" ng-click="ref.addReferral()">Add</button>
-		</form>
-		<table id="refTable" class="table table-hover col-lg-12 col-md-12 col-sm-12 col-xs-12">
-			<tr>
-				<td>Link Title</td>
-				<td>Clicks</td>
-				<td>Edit</td>
-				<td>Delete</td>
-			</tr>
-			<tr ng-repeat="referral in ref.refs track by $index">
-				<td><a href="#/landing" ng-click="ref.updateClicks($index)">{{referral.ref}}</a></td>
-				<td>{{referral.clicks}}</td>
-				<td><button ng-click="ref.editRef()">Edit</button></td>
-				<td><button ng-click="ref.removeRef($index)">Delete</button></td>
-			</tr>
-		</table>
+		<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+			<p>Search the links: </p>
+		</div>
+	    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+	    	<input type="text" ng-model="searchText" class="form-control" placeholder="Search">
+	    </div>
 	</div>
+	<table id="refTable" class="row table table-hover">
+		<tr>
+			<th data-sortable="true">Link Title</th>
+			<th data-sortable="true">Clicks</th>
+			<th>Edit</th>
+			<th>Delete</th>
+		</tr>
+		<tr ng-repeat="referral in ref.refs | filter:searchText track by $index">
+			<td><a href="#/landing?link={{referral.ref}}" ng-click="ref.updateClicks($index)">{{referral.ref}}</a></td>
+			<td>{{referral.clicks}}</td>
+			<td><button ng-click="ref.editRef($index)">Edit</button></td>
+			<td><button ng-click="ref.removeRef($index)">Delete</button></td>
+		</tr>
+	</table>
 </div>
