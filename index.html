@@ -6,12 +6,44 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
-	<body>
-		<ng-view></ng-view>
+	<body ng-controller="RefCtrl">
+		<!-- The view for the referral table/input form -->
+		<div class="container">
+			<h1>Grow the web with referrals!</h1>
+			<div class="row">
+				<form class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<label>Add a link: </label>
+				    <input type="text" ng-model="newRef" class="form-control" placeholder="Link">
+				    <button type="add" class="btn btn-default" ng-click="addReferral()">Add</button>
+				</form>
+				<table id="refTable" class="table table-hover col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<tr>
+						<td>Link Title</td>
+						<td>Clicks</td>
+						<td>Edit</td>
+						<td>Delete</td>
+					</tr>
+					<tr>
+						<td><a href="./Example1">Example1</a></td>
+						<td>42</td>
+						<td ng-click="">Edit</td>
+						<td ng-click="">Delete</td>
+					</tr>
+					<tr>
+						<td><a href="./OtherExample">OtherExample</a></td>
+						<td>37</td>
+						<td ng-click="">Edit</td>
+						<td ng-click="">Delete</td>
+					</tr>	
+				</table>
+			</div>
+			<div class="test"></div>
+		</div>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
-		<script src="https://code.angularjs.org/1.4.7/angular-route.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="app.js"></script>
 		<script src="refCtrl.js"></script>
 		<script src="splashCtrl.js"></script>
+		<script src="refService.js"></script>
 	</body>
 </html>

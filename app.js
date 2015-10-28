@@ -1,20 +1,2 @@
-var app = angular.module('refApp', ['ngRoute']);
+var app = angular.module('refApp', []);
 
-app.config(function($routeProvider) {
-	$routeProvider.when('/',
-	{
-		controller: 'RefCtrl',
-		templateUrl: 'refView'
-	});
-	$routeProvider.when('/splashView',
-	{
-		controller: 'SplashCtrl',
-		templateUrl: 'splashView'
-	});
-	$routeProvider.otherwise(
-	{ 
-		redirectTo: '/404',
-		controller: 'WhoopsController',
-		templateUrl: '404' 
-	});
-});
