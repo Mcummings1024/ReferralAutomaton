@@ -1,0 +1,14 @@
+body {
+	font-family: "Montserrat", sans-serif, monospace;
+	padding: 20px;
+}
+
+h1 {
+	text-align: center;
+	margin: 10px;
+}
+
+table {
+	margin: 10px;
+	padding: 10px;
+}
