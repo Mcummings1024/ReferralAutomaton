@@ -6,15 +6,15 @@
 		<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="main.css">
 	</head>
-	<body ng-controller="RefCtrl">
+	<body ng-controller="RefCtrl as ref">
 		<!-- The view for the referral table/input form -->
 		<div class="container">
 			<h1>Grow the web with referrals!</h1>
 			<div class="row">
 				<form class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<label>Add a link: </label>
-				    <input type="text" ng-model="newRef" class="form-control" placeholder="Link">
-				    <button type="add" class="btn btn-default" ng-click="addReferral()">Add</button>
+				    <input type="text" ng-model="ref.newRef" class="form-control" placeholder="Link">
+				    <button type="add" class="btn btn-default" ng-click="ref.addReferral()">Add</button>
 				</form>
 				<table id="refTable" class="table table-hover col-lg-12 col-md-12 col-sm-12 col-xs-12">
 					<tr>
@@ -34,7 +34,13 @@
 						<td>37</td>
 						<td ng-click="">Edit</td>
 						<td ng-click="">Delete</td>
-					</tr>	
+					</tr>
+					<tr ng-repeat="referral in ref.refs track by $index">
+						<td><a href="./landing?link={{referral.ref}}" ng-click="ref.updateClicks($index)">{{referral.ref}}</a></td>
+						<td>{{referral.clicks}}</td>
+						<td><button ng-click="">Edit</button></td>
+						<td><button ng-click="">Delete</button></td>
+					</tr>
 				</table>
 			</div>
 			<div class="test"></div>
