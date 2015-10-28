@@ -12,9 +12,12 @@ app.factory('refService', function() {
 			return refs;
 		},
 
-		addRefs: function(ref) {
-			console.log('adding ref');
+		addRef: function(ref) {
 			refs.push(ref);
+		},
+
+		removeRef: function(index) {
+			refs.splice(index, 1);
 		},
 
 		refs: refs
